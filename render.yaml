@@ -1,0 +1,50 @@
+services:
+  - name: aero-dash-backend
+    type: web
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node server.js
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://harsh9599566:Harsh0321@cluster0.o0gm5.mongodb.net/whatsapp-chat?retryWrites=true&w=majority&appName=Cluster0
+      - key: FRONTEND_URL
+        value: https://aero-dash-frontend.onrender.com
+      - key: FIREBASE_PROJECT_ID
+        value: chatapp032-f4998
+      - key: FIREBASE_PRIVATE_KEY_ID
+        value: a1380cff80b317205d441af0607d89b5356c03dd
+      - key: FIREBASE_PRIVATE_KEY
+        value: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDzdv8xo6nPY2Hh\n5lf+2V876Y3EjIK0yCvmfXjagd4vt/nxwtQMC4NGFngK8pm8SNXXyCUBP7UhDIct\nPqpnD0oPoXYnTZN4G0r9Ao01jt4OJbOkUeTZ9k2iljF83rtcA5mYSc8LAP1aQwkM\nL92t0tIR0clb41pl4cFI/9PKF41459ViCuORHiVVfTsBZQ2jyMZNzEdwOQ6SBcGR\npZf0eW4zQASmL5E/L3v5HH1PX/EUmnx+OfSkPZrgAqw+b/3IrvtyVEzbAMNh5XRI\nFIt8D27C/Tvma/TJ+3oaFUs5EPja3mNqzaynmmTzJ2OiaiqyHOfa96EziUWoC+pM\ndgD7iW6zAgMBAAECggEAWVPARwi6/aYDnFwkzhMYL4W+J668KDNHdC52IInEqTJx\nyMPIhFDXDeihi7a+NEhu+VhsR1yGCwWrNS0IXX7NGBYQIVSDtm4hIdqFT/DGxV8M\n3c3UTyphCrXbm2qnSJfji24NQobO7gapc6i+R5AR1krn+8hbewUNI0kF/mCM3h5O\nOfZJRdl2+jspqseYqERERgIp0tbH/jgNW2OM1185fgqOaYm543AjFSz6kv6281mM\nuB+hT0hWtqm62/Li8Gie80ZGKE+VkffTXX+XKdRK/JRQi6A3Jf4vHhuO+cMH7zmA\nUPGbSg+c719uMeZfxJ2qvgEaRcuFxEc5GigC3VYfEQKBgQD/047fPZDHaYmJJbi+\nh7o8jyTsua6R/rkhIb2uZsgHVwwiwJntpXwS72OIOyr5O2RcqwwWempzuseb3Shs\n4yrYAijoWX34uZaaI7Tko5MNzcQjwXU0Ss+6qGc35BM/6zjTQfWOzPZaCw+7WFK5\nzNV5BZy/HFPxt9FDM3RLCnjXMQKBgQDzoUqT1DDuPkpThop/GEG97PCiyM3LpDiv\nXpRqMh3WcXBwqkbd1F+RrBob8bbszrFUewckVzF2/nkJc9rkqk4b6YbANAHb0auz\nrZ+M2mW5mLfFKTg9qPBW2vCcHVYnw2aP55UDwfwNQndtVhmdzXaq5igk97Z+5Mzb\nWLmERalzIwKBgQDu+4zOEs862eY3jluE8XoStI4D7nmbvN7oioKNd0qJQNH/bPje\nveaoMaVDUDKW3Nqmjssd/IGRVvy9J95pydTuMSZR17gMMCL2H0EPDZeEH6KI3GJG\n1VQ0xLiXx6IL5gsRnt5r5iCEgSzTEHFHTIhnI80H4siwV81O/7Q1nbTBIQKBgQDR\nH+8DK84AgwmL3t39MJYl8D+yi4lTNxjNN/NPoMtJ6r/ohdEk0wph4Yfb2sT5Soaf\nDKfZwtqb2N2OhpsrUyCPBwp662l5BeZL6kodPs643GVKYRJ8owoClBaa+vecVDcy\naUfZHOc9foNDH/gHI3msQrnM2bEWBVHvKp678ov8XwKBgGH7JJNolMFBbygHZyZB\nSX2lO+Ci818xWSIEn+/6eDT7v/bQLUHg0nSc588HEIR6aZfnwjQ0MKjbT08zgxmu\n8zMcHNdJ8temohgOIj4pOcHLaOKhn2LKeRp+sO8FF9qm2dTHsk/yV2eYph+TR2xi\ntalN7Iofa0wCvwNQ3TMyTleg\n-----END PRIVATE KEY-----\n"
+      - key: FIREBASE_CLIENT_EMAIL
+        value: firebase-adminsdk-fbsvc@chatapp032-f4998.iam.gserviceaccount.com
+      - key: FIREBASE_CLIENT_ID
+        value: 116762074285678313199
+      - key: FIREBASE_AUTH_URI
+        value: https://accounts.google.com/o/oauth2/auth
+      - key: FIREBASE_TOKEN_URI
+        value: https://oauth2.googleapis.com/token
+      - key: FIREBASE_AUTH_PROVIDER_X509_CERT_URL
+        value: https://www.googleapis.com/oauth2/v1/certs
+      - key: FIREBASE_CLIENT_X509_CERT_URL
+        value: https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40chatapp032-f4998.iam.gserviceaccount.com
+
+  - name: aero-dash-frontend
+    type: web
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://aero-dash-backend.onrender.com
+      - key: VITE_FIREBASE_API_KEY
+        value: AIzaSyDxqXqXqXqXqXqXqXqXqXqXqXqXqXqXqXqX
+      - key: VITE_FIREBASE_AUTH_DOMAIN
+        value: chatapp032-f4998.firebaseapp.com
+      - key: VITE_FIREBASE_PROJECT_ID
+        value: chatapp032-f4998
+      - key: VITE_FIREBASE_STORAGE_BUCKET
+        value: chatapp032-f4998.appspot.com
+      - key: VITE_FIREBASE_MESSAGING_SENDER_ID
+        value: 116762074285678313199
+      - key: VITE_FIREBASE_APP_ID
+        value: 1:116762074285678313199:web:abcdef1234567890 
